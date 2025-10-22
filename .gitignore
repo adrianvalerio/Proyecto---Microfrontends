@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+dist/
+build/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+
+# Android / VS
+.android/
+.vscode/
+*.targets
+*.json
+*.pub

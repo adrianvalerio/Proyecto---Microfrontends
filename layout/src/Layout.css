@@ -1,0 +1,19 @@
+.layout-container {
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+.layout-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.layout-sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  border-left: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+}
