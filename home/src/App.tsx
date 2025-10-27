@@ -7,46 +7,55 @@ const App: React.FC = () => {
       {/* Hero principal */}
       <section className="hero">
         <div className="hero-content">
-          <h1>🎬 Bienvenido a <span>CineScope</span></h1>
-          <p>
-            Tu portal cinematográfico para descubrir los últimos estrenos, trailers y horarios de cine.
+          <h1>CINEMAX</h1>
+          <p className="description">
+            Disfruta de los mejores estrenos con la mejor calidad de imagen y sonido
           </p>
-          <button className="cta-btn">🍿 Explorar cartelera</button>
+          <button className="cta-btn">Ver Cartelera</button>
         </div>
       </section>
 
-      {/* Sección de categorías */}
-      <section className="categories">
-        <h2>Explora por categoría</h2>
-        <div className="category-grid">
-          <div className="card">🎥 Estrenos</div>
-          <div className="card">⭐ Más vistas</div>
-          <div className="card">🎭 Clásicos</div>
-          <div className="card">🕹️ Animación</div>
-        </div>
-      </section>
-
-      {/* Sección destacada */}
-      <section className="featured">
-        <h2>Destacado de la semana</h2>
-        <div className="featured-card">
-          <img
-            src="https://images.unsplash.com/photo-1505685296765-3a2736de412f"
-            alt="película destacada"
-          />
-          <div className="featured-info">
-            <h3>La Leyenda del Cine</h3>
-            <p>
-              Una historia épica sobre sueños, luces y el poder del séptimo arte.
-            </p>
-            <button className="watch-btn">Ver detalles</button>
+      {/* Servicios */}
+      <section className="section services">
+        <h2>✨ Nuestros Servicios</h2>
+        <div className="services-grid">
+          <div className="service-card">
+            <span className="service-icon">🎥</span>
+            <h3>Proyección HD</h3>
+            <p>Imagen nítida en todas nuestras salas</p>
+          </div>
+          <div className="service-card">
+            <span className="service-icon">🔊</span>
+            <h3>Sonido Premium</h3>
+            <p>Sistema de audio envolvente</p>
+          </div>
+          <div className="service-card">
+            <span className="service-icon">🍿</span>
+            <h3>Snack Bar</h3>
+            <p>Variedad de alimentos y bebidas</p>
           </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
-        © 2025 CineScope · Todos los derechos reservados
+        <div className="footer-content">
+          <div>
+            <h3>CINEMAX</h3>
+            <p>La mejor experiencia cinematográfica</p>
+          </div>
+          <div>
+            <h4>Enlaces</h4>
+            <ul>
+              <li>Cartelera</li>
+              <li>Próximos Estrenos</li>
+              <li>Contacto</li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>© 2025 CINEMAX - Todos los derechos reservados</p>
+        </div>
       </footer>
     </div>
   );
