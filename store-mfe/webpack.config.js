@@ -31,19 +31,19 @@ module.exports = {
       shared: {
         react: { 
           singleton: true, 
-          eager: false, // Cambia a false
+          eager: false,
           requiredVersion: false,
           strictVersion: false
         },
         'react-dom': { 
           singleton: true, 
-          eager: false, // Cambia a false
+          eager: false,
           requiredVersion: false,
           strictVersion: false
         },
         zustand: { 
           singleton: true, 
-          eager: false, // Consistente con movies
+          eager: false,
           requiredVersion: false,
           strictVersion: false
         },
