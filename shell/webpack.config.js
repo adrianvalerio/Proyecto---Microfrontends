@@ -1,12 +1,13 @@
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { ModuleFederationPlugin } = require("@module-federation/enhanced/webpack");
+const { ModuleFederationPlugin } = require("webpack").container;
+const path = require("path");
+const deps = require("./package.json").dependencies;
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: "./src/index",
   mode: "development",
   devServer: {
-    port: 3000,
+    port: 8080,
     open: true,
     historyApiFallback: true,
   },
@@ -15,14 +16,14 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/,
+        test: /\.tsx?$/,
+        loader: "ts-loader",
         exclude: /node_modules/,
-        use: "babel-loader",
       },
       {
         test: /\.css$/,
@@ -30,17 +31,33 @@ module.exports = {
       },
     ],
   },
-  plugins: [  
+  plugins: [
     new ModuleFederationPlugin({
       name: "shell",
-      filename: "remoteEntry.js",
       remotes: {
-        layout: "layout@http://localhost:3001/remoteEntry.js"
+        layout: "layout@http://localhost:3001/remoteEntry.js",
+        home: "home@http://localhost:3002/remoteEntry.js",
+        movies: "movies@http://localhost:3003/remoteEntry.js",
       },
-shared: {
-  react: { singleton: true, eager: true, requiredVersion: false },
-  "react-dom": { singleton: true, eager: true, requiredVersion: false },
-},
+      shared: {
+        react: {
+          singleton: true,
+          eager: true,
+          requiredVersion: deps.react,
+        },
+        "react-dom": {
+          singleton: true,
+          eager: true,
+          requiredVersion: deps["react-dom"],
+        },
+        "react-router-dom": { 
+          singleton: true,
+          eager: true,
+        },
+        zustand: { 
+          singleton: true,
+        },
+      },
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

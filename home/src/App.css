@@ -1,0 +1,147 @@
+.home {
+  color: #f1f5f9;
+  background-color: #0f172a;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 6rem 1rem;
+  background: linear-gradient(180deg, #1e293b, #0f172a);
+  border-radius: 16px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #facc15;
+}
+
+.hero-content span {
+  color: #fde047;
+}
+
+.hero-content p {
+  max-width: 600px;
+  margin: 1rem auto;
+  color: #cbd5e1;
+  font-size: 1.2rem;
+}
+
+.cta-btn {
+  background-color: #facc15;
+  color: #1e293b;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cta-btn:hover {
+  background-color: #fde047;
+  transform: scale(1.05);
+}
+
+/* Categorías */
+.categories {
+  text-align: center;
+}
+
+.categories h2 {
+  font-size: 2rem;
+  color: #facc15;
+  margin-bottom: 2rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 0 2rem;
+}
+
+.card {
+  background-color: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.card:hover {
+  background-color: #334155;
+  transform: translateY(-5px);
+}
+
+/* Destacado */
+.featured {
+  text-align: center;
+}
+
+.featured h2 {
+  font-size: 2rem;
+  color: #facc15;
+  margin-bottom: 2rem;
+}
+
+.featured-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #1e293b;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.featured-card img {
+  width: 100%;
+  max-width: 400px;
+  object-fit: cover;
+}
+
+.featured-info {
+  padding: 2rem;
+  flex: 1;
+  text-align: left;
+}
+
+.featured-info h3 {
+  color: #fde047;
+  font-size: 1.8rem;
+}
+
+.watch-btn {
+  background-color: #facc15;
+  border: none;
+  color: #1e293b;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.watch-btn:hover {
+  background-color: #fde047;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  padding: 2rem 0;
+  border-top: 1px solid #334155;
+}

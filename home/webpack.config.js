@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: "./src/index",
   mode: "development",
   devServer: {
-    port: 3001,
+    port: 3002,
     open: true,
     historyApiFallback: true,
   },
@@ -21,7 +21,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        loader: "ts-loader",
         exclude: /node_modules/,
       },
       {
@@ -32,15 +32,14 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "layout",
+      name: "home",
       filename: "remoteEntry.js",
       exposes: {
-        "./Layout": "./src/Layout.tsx",
+        "./HomeApp": "./src/App",
       },
       shared: {
         react: { singleton: true, eager: true, requiredVersion: false },
         "react-dom": { singleton: true, eager: true, requiredVersion: false },
-        'react-router-dom': { singleton: true, eager: false },
       },
     }),
     new HtmlWebpackPlugin({

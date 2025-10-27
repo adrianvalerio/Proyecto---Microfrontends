@@ -1,7 +1,19 @@
 import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
+interface LayoutProps {
+  children?: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [open, setOpen] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const menuItems = [
+    { path: "/home", icon: "🏠", label: "Home" },
+    { path: "/movies", icon: "🎬", label: "Movies" },
+  ];
 
   return (
     <div style={{ display: "flex", height: "100vh" }}>
@@ -28,38 +40,58 @@ const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
             cursor: "pointer",
             marginBottom: "2rem",
             fontSize: "1.2rem",
+            alignSelf: open ? "flex-end" : "center",
           }}
         >
           {open ? "⏴" : "⏵"}
         </button>
 
-        <button
-          style={{
-            background: "transparent",
-            border: "none",
-            color: "white",
-            cursor: "pointer",
-            fontSize: "1rem",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
-        >
-          🏠 {open && "Home"}
-        </button>
+        {menuItems.map((item) => {
+          const isActive = location.pathname === item.path;
+          return (
+            <button
+              key={item.path}
+              onClick={() => navigate(item.path)}
+              style={{
+                background: isActive ? "#374151" : "transparent",
+                border: "none",
+                color: "white",
+                cursor: "pointer",
+                fontSize: "1rem",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.75rem",
+                borderRadius: "0.5rem",
+                width: "100%",
+                marginBottom: "0.5rem",
+                transition: "background 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive) e.currentTarget.style.background = "#374151";
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) e.currentTarget.style.background = "transparent";
+              }}
+            >
+              <span>{item.icon}</span>
+              {open && <span>{item.label}</span>}
+            </button>
+          );
+        })}
       </div>
 
       {/* Área de contenido */}
       <main
         style={{
           flex: 1,
-          background: "#f9fafb",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          background: "#0f172a",
+          color: "#facc15",
+          overflowY: "auto",
+          padding: "2rem",
         }}
       >
-        {children ? children : <h2>Bienvenido al layout remoto</h2>}
+        {children}
       </main>
     </div>
   );
